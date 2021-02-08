@@ -25,14 +25,13 @@ const mealDetails = name =>{
       fetch(url)
       .then(res=>res.json())
       .then(data => mealInfo(data.meals[0]));
-      
 }
 const mealInfo= meals =>{
     const mealDiv = document.getElementById('meal-detail');
     mealDiv.innerHTML=`
     <img src="${meals.strMealThumb}">
     <h3>${meals.strMeal}</h3>
-    <p>Ingredients:</p>
+    <p>Ingredients:<p>
     <ul>
     <li>${meals.strIngredient1}</li>
     <li>${meals.strIngredient2}</li>
@@ -44,6 +43,7 @@ const mealInfo= meals =>{
     <li>${meals.strIngredient8}</li>
     <li>${meals.strIngredient9}</li>
     <li>${meals.strIngredient10}</li>
-    </ul>
+    </ul>`
+    
 
 }
