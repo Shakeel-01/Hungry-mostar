@@ -1,18 +1,20 @@
-fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata')
-.then(res => res.json())
-.then(data => displayMeal(data));
+const searchMeals=()=> {
+    const name = document.getElementById('searchInput').value;
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`
+    fetch(url)
+    .then(res=>res.json())
+    .then(data => displayMeals(data.meals));
 
-const displayMeal = meals => {
-    const mealsDiv = document.getElementById('meals');
-    meals.forEach(Meal => {
+}
+
+const displayMeals= meals =>{
+    const mealContainer= document.getElementById('meal-container');
+    meals.forEach(meal => {
         const mealDiv = document.createElement('div');
-        mealDiv.className = 'meal';
-        const mealInfo = `
-     <img src="${MealThumb.str}">;
-     <h3>${Meal.str}</h3>;
-    `
-        mealDiv.innerHTML = mealInfo;
-        mealsDiv.appendChild(mealDiv);
+        mealDiv.className= 'meal';
+        mealDiv.innerHTML= `
+        <img src="${meal.strMealThumb}">
+        <h3>${meal.strMeal}</h3>`
+        mealContainer.appendChild(mealDiv);
     });
-
 }
