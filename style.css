@@ -17,3 +17,11 @@
 .meal img {
     width: 300px;
 }
+#meal-detail{
+    margin-left: 35%;
+    padding-top: 20px;
+}
+#meal-detail img{
+    width: 400px;
+   
+}
